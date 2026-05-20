@@ -4,7 +4,8 @@ const connectDB = async () => {
   try {
    mongoose
   .connect(process.env.MONGO_URI, {
-    dbName: "video-carousel"
+    dbName: "video-carousel",
+    serverSelectionTimeoutMS: 30000
   })
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
