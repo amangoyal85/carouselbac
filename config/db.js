@@ -2,9 +2,12 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
-
-    console.log("MongoDB Connected");
+   mongoose
+  .connect(process.env.MONGO_URI, {
+    dbName: "video-carousel"
+  })
+  .then(() => console.log("MongoDB Connected"))
+  .catch((err) => console.log(err));
   } catch (error) {
     console.log(error);
 
